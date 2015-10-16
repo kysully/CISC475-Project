@@ -1,3 +1,11 @@
+/*
+* Cisc 475 - Project 4
+* Kyle Sullivan
+* This code creates a postgres user defined function 
+* for the language Pl/Python
+* The function serves as a client to connect to 
+* a python server listening
+*/
 CREATE OR REPLACE FUNCTION debuggerConnect()
 returns text AS
 $$
