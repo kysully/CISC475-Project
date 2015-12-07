@@ -8,12 +8,3 @@ def sumnumbers(n):
          sum = i + sum
     return sum
 
-
-#import pdb
-
-#pdb.set_trace()
-#sum = 0
-#for i in range(1, 6):
-#    pdb.set_trace()
-#    sum = i + sum
-#print(sum)
