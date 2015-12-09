@@ -1,19 +1,36 @@
 # CISC475-Project
 
-The following are a list of some of the commands the Python debugger recognizes. More then one command may be eneterd at a time by using ;; to seperate them.  [] represent optional comments.  The brackets must not be typed when entering the command. 
+What is it?
+-----------
+Postgresql is a powerful and popular open source relational database management system. Our client wanted a way to debug the user defined functions being put into the postgres server. Our goal was to create a Python debugger that was able to connect from the postgres server to our local machine, extract the python definition, debug it, and send the code back with relevent debugging information.
 
-Help or h : Generates a list of all the commands that are available. 
+Our project utilizes a library called The Python Debugger, or "pdb". This module is an interactive source code debugger for Python programs where one can step through the code and evaluate it.
 
-Where or w : Returns a stack trace with the most recent frame at the bottom.  There will be an arrow to indicate the current frame, which determines the context of most commands.
+Where are the files?
+--------------------
+The files can be found on github at https://github.com/kysully/CISC475-Project.
 
-Break or b [[filename:]lineno|function[,condition]] : Using the lineno argument will make a break at theat point in the argument. The function argument creates a break in the current function at the first executeable statement.
+Files Descriptions
+------------------
+debuggerConnect: SQL file containing function needed to connect to client server.
 
-tbreak [[filename:]lineno|function[,condition]] : Temporary break which will be removed once it is hit
+PythonDebuggerClient: The python code from debuggerConnect.
 
-clear or cl  [filename:lineno | bpnumber [bpnumber ...]] : This command clears breaks.  If there is a lineno argument, it clears all the breaks within that line.  When there is a list of numbers, it clears those specific breakpoints.  Lastly, if there is no argument with the command it clears all the breaks.
+PythonDebuggerServer: The python code used to connect to the client server and debug the python code.
 
-continue or cont or c : This command continues the execution.  It will only stop if a break point is encountered
+testcases: File containing unit test cases of sample python functions.
 
-jump or j lineno : Determines the next line that will be executed.  This allows you to jump back and execute the code again, so you can only use this in the bottom frame
+Example python functions: maxnum, sumnumbers.
 
-list or l [first, [last]] : Lists the code of the file.  Lists 11 arguments if there is no argument.  If only the first is given, it lists the 11 lines surrounding it.  If both the first and the list are given it will enter both lines and all in between.
+PythonDebuggerHelp: Commands useful when debugging python code.
+
+Instructions
+------------
+1) Log into Postgres database. Enter function found in the file debuggerConnect.
+
+2) Run PythonDebuggerServer to open the connection.
+
+3) Run the code entered into Postgres using the following as an example:
+    SELECT debuggerConnect('Hello');
+
+4) Refer to PythonDebuggerHelp.md for useful commands to use when debugging code.
