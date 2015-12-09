@@ -14,7 +14,7 @@ def serverListen():
     #local host is 127.0.0.1
     TCP_IP = '127.0.0.1'
     TCP_PORT = 10000
-    BUFFER_SIZE = 20  # Normally 1024, but we want fast response
+    BUFFER_SIZE = 1024  # Normally 1024, but we want fast response
 
     #creates the socket we will connect on and binds it to the localhost
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -31,6 +31,11 @@ def serverListen():
         if not data: break
         #print out the data sent after converting back to a string
         print ("received data:", data.decode('utf-8'))
+        source = (data.decode('utf-8'))
+        source = """if a > b:\n  return true\nreturn false"""
+        code = compile(source, '<string>', 'exec')
+        exec(code)
+        #exec dataString
         conn.send(data)  # echo the data we recieved
     #close out the connection
     conn.close()
