@@ -38,3 +38,19 @@ Instructions
     SELECT debuggerConnect('Hello');
 
 4) Refer to PythonDebuggerHelp.md for useful commands to use when debugging code.
+
+Notes for Future Development
+----------------------------
+1) Determine how postgresql handles indention (tabs) in
+   order to properly handle the formatting
+2) Make use of python's **compile** function and **exec** function
+   in order to compile and run python code (and then debug)
+3) Use pdb (python command line debugger) if using command line,
+   otherwise use a built in debugger like on visual studio
+
+####Side node
+- the following sql statement was used to extract the pl/python
+  source code:
+  ```sql
+  SELET prosrc FROM pg_proc WHERE proname LIKE 'func-name'
+  ```
