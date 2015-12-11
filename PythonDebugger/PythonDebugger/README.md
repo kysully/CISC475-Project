@@ -12,6 +12,8 @@ The files can be found on github at https://github.com/kysully/CISC475-Project.
 
 Files Descriptions
 ------------------
+main: Run this file to run the server.
+
 debuggerConnect: SQL file containing function needed to connect to client server.
 
 PythonDebuggerClient: The python code from debuggerConnect.
@@ -24,11 +26,13 @@ Example python functions: maxnum, sumnumbers.
 
 PythonDebuggerHelp: Commands useful when debugging python code.
 
+TurnOverDocument: Informs current status of project and where one can continue building the project from there.
+
 Instructions
 ------------
 1) Log into Postgres database. Enter function found in the file debuggerConnect.
 
-2) Run PythonDebuggerServer to open the connection.
+2) Run Main.py to open the connection.
 
 3) Run the code entered into Postgres using the following as an example:
     SELECT debuggerConnect('Hello');
