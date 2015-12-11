@@ -53,7 +53,7 @@ Notes for Future Development
 ####Side node
 - the following sql statement was used to extract the pl/python
   source code:
-  ```pqsql
+  ```sql
   
   SELECT prosrc FROM pg_proc WHERE proname LIKE 'func-name'
   ```
